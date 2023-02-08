@@ -17,12 +17,12 @@ namespace ShopOnline.Web.Services
         {
             try
             {
-                var products = await this.httpClient.GetFromJsonAsync<IEnumerable<ProductDto>>("api/Product");
+                var products = await httpClient.GetFromJsonAsync<IEnumerable<ProductDto>>("api/Product");
                 return products;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
+                var testttt = ex.Message;
                 throw;
             }
         }

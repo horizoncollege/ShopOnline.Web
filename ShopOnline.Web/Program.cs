@@ -6,7 +6,7 @@ using ShopOnline.Web.Services.Contracts;
 
 var builder = WebAssemblyHostBuilder.CreateDefault(args);
 builder.RootComponents.Add<App>("#app");
-builder.RootComponents.Add<HeadOutlet>("head::after");
+builder.RootComponents.Add<HeadOutlet>("head::after"); 
 
 builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri("https://localhost:7022/") });
  
@@ -16,6 +16,4 @@ builder.Services.AddScoped<IProductService, ProductService>();
 
 await builder.Build().RunAsync();
  
-// injection dependency
-// reference type
-// objecten reference
+    

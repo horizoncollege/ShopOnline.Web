@@ -77,7 +77,7 @@ namespace ShopOnline.Api.Data
                 Id = 6,
                 Name = "Air Pods",
                 Description = "Air Pods - in-ear wireless headphones",
-                ImageURL = "/Images/Electronic/Electronics1.png",
+                ImageURL = "/Images/Electronic/Electronics1.png", 
                 Price = 100,
                 Qty = 120,
                 CategoryId = 3
