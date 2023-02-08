@@ -22,6 +22,7 @@ namespace ShopOnline.Api.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductDto>>> GetItems()
         {
+            
             try
             {
                 var products = await this.productRepository.GetItems();
