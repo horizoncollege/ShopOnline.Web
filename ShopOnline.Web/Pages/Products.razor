@@ -1,9 +1,7 @@
-﻿@page "/p"
-@using ShopOnline.Models.Dtos
+﻿@using ShopOnline.Models.Dtos
 @using ShopOnline.Web.Pages
+@page "/products"
 @inherits ProductsBase
-
-<h3>Products</h3>
 
 @if(Products == null)
 {
@@ -12,7 +10,6 @@
 else
 {
     <h3 class="mb-5">Products</h3>
-
     var productCount = Products.Count(); 
 
     @if(productCount > 0)
@@ -48,4 +45,4 @@ else
         }
 
     }
-}
+ }
