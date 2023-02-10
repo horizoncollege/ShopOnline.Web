@@ -19,7 +19,11 @@ namespace ShopOnline.Api.Controllers
         }
 
 
-     
+
+    
+
+
+
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ProductDto>>> GetItems()
         {
@@ -46,6 +50,37 @@ namespace ShopOnline.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
             }
         }
+
+
+        [HttpGet("{id:int}")]
+        public async Task<ActionResult<ProductDto>> GetItem(int id)
+        {
+            try
+            {
+                var product = await productRepository.GetItem(id);
+
+
+                if (product == null)
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    var productCategory = await productRepository.GetCategory(product.CategoryId);
+
+                    var productDto = product.ConvertToDto(productCategory);
+
+                    return Ok(productDto); 
+                }
+            }
+            catch (Exception)
+            {
+
+                return StatusCode(StatusCodes.Status500InternalServerError, "Database Failure");
+            }
+        }
+
+
     }
 }
   

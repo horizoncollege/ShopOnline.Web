@@ -21,14 +21,20 @@ namespace ShopOnline.Api.Repositories
 
         }
 
-        public Task<ProductCategory> GetCategory(int id)
+        public async Task<ProductCategory> GetCategory(int id)
         {
-            throw new NotImplementedException();
+            var category = await shopOnlineDbContext.ProductCategories.SingleOrDefaultAsync(c => c.Id == id);
+            return category;
+            //SingleOrDefaultAsync method wordt gebruikt om de productcatergory.id te vinden met de overeenkomende id 
+            // De lambda-uitdrukking c => c.Id == id kan worden gelezen als: "Gegeven een invoer c van het type ProductCategory, 
+            // geef true terug als c.Id gelijk is aan id, anders geef false terug."     
         }
 
-        public Task<Product> GetItem(int id)
+
+        public async Task<Product> GetItem(int id)
         {
-            throw new NotImplementedException();
+            var product = await shopOnlineDbContext.Products.FindAsync(id);
+            return product;
         }
 
         public async Task<IEnumerable<Product>> GetItems()
